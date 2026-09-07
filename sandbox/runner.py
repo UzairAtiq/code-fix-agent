@@ -1,10 +1,12 @@
 import subprocess
 
-#test file path
-test_file = "/Users/uzair/Developer/code-fix-agent/tests/sample_broken/test1.py"
+def runner(test_file : str) :
 
-result = subprocess.run(  ["python" ,test_file] , capture_output=True , text= True)
+  #creating the subprocess 
+  result = subprocess.run(  ["python" ,test_file] , capture_output=True , text= True)
 
-print(result.stdout)
-print(result.stderr)
+
+  #printing the output or error of the subprocess
+  print(result.stdout)
+  print(result.stderr)
 
