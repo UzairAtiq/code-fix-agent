@@ -9,6 +9,7 @@ def prompt(error , test_file) :
   "The error i am getting in my code is {Error}\n"
   "The code is {Test_file} \n"
   "Fix this error and return to me my fixed code \n"
+  "Return the answer with two headings , One : 'Fixed code' with the fixed code , Second: 'Explanation' with the explanation"
   )
 
   #formatting the template
