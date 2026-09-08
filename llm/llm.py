@@ -3,7 +3,7 @@ from llm.prompt import prompt
 from sandbox.runner import runner
 from config import GROQ_API_KEY
 
-def llm() :
+def llm(prompt : str) :
 
   #Setiing up the llm
   llm = ChatGroq(
@@ -16,3 +16,5 @@ def llm() :
 
   #Returning only the text content
   return answer.content
+
+
