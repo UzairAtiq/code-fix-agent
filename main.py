@@ -24,6 +24,7 @@ for filename in sorted(os.listdir(broken_dir)):
 
     #printing all the stuff hapeening inside the fixing loop like attempts and proposed fix 
       print(f"\n--- Running: {filename} ---")
+      
       #storing the attempts log list in variable 
       result = fix_loop(test_file, fixed_file)
 
