@@ -41,13 +41,18 @@ def fix_loop (test_file : str , fixed_file) :
     result = runner(fixed_file)
 
     #If no error
-    if result.returncode == 0 or stopper(count):
+    if result.returncode == 0 :
       print("FILE RAN SUCESSFULLY")
 
       #Printing the output 
       print("File Output : ",result.stdout)
       break
 
+    elif stopper(count) :
+      print("FAILED TO FIX AFTER MAX ATTEMPTS")
+      print("Last Error:", result.stderr)
+      break   
+    
     else : 
 
       #Getting the error
