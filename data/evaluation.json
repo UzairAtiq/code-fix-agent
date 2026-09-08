@@ -1,0 +1,182 @@
+[
+  {
+    "status": "success",
+    "attempts": 2,
+    "final_code": "def sum_range(n):\n    total = 0\n    for i in range(1, n + 1):\n        total += i\n    return total\nassert sum_range(5) == 15",
+    "log": [
+      {
+        "attempt": 1,
+        "error": "Traceback (most recent call last):\n  File \"/Users/uzair/Developer/code-fix-agent/tests/fixed/test1.py\", line 7, in <module>\n    assert sum_range(5) == 15\n           ^^^^^^^^^^^^^^^^^^\nAssertionError\n",
+        "proposed_fix": "def sum_range(n):\n    total = 0\n    for i in range(1, n + 1):\n        total += i\n    return total"
+      },
+      {
+        "attempt": 2,
+        "status": "success",
+        "output": ""
+      }
+    ],
+    "filename": "test1.py"
+  },
+  {
+    "status": "success",
+    "attempts": 2,
+    "final_code": "def get_value(d, key):\n    return d.get(key)\nassert get_value({\"a\": 1}, \"b\") == None",
+    "log": [
+      {
+        "attempt": 1,
+        "error": "Traceback (most recent call last):\n  File \"/Users/uzair/Developer/code-fix-agent/tests/fixed/test10.py\", line 4, in <module>\n    assert get_value({\"a\": 1}, \"b\") == None\n           ~~~~~~~~~^^^^^^^^^^^^^^^\n  File \"/Users/uzair/Developer/code-fix-agent/tests/fixed/test10.py\", line 2, in get_value\n    return d[key]\n           ~^^^^^\nKeyError: 'b'\n",
+        "proposed_fix": "def get_value(d, key):\n    return d.get(key)"
+      },
+      {
+        "attempt": 2,
+        "status": "success",
+        "output": ""
+      }
+    ],
+    "filename": "test10.py"
+  },
+  {
+    "status": "success",
+    "attempts": 2,
+    "final_code": "def is_adult(age):\n    if age >= 18:\n        return True\n    return False\nassert is_adult(18) == True\nassert is_adult(17) == False",
+    "log": [
+      {
+        "attempt": 1,
+        "error": "Traceback (most recent call last):\n  File \"/Users/uzair/Developer/code-fix-agent/tests/fixed/test2.py\", line 6, in <module>\n    assert is_adult(18) == True\n           ^^^^^^^^^^^^^^^^^^^^\nAssertionError\n",
+        "proposed_fix": "def is_adult(age):\n    if age >= 18:\n        return True\n    return False"
+      },
+      {
+        "attempt": 2,
+        "status": "success",
+        "output": ""
+      }
+    ],
+    "filename": "test2.py"
+  },
+  {
+    "status": "success",
+    "attempts": 2,
+    "final_code": "def reverse_string(s):\n    return s[::-1]\nassert reverse_string(\"hello\") == \"olleh\"",
+    "log": [
+      {
+        "attempt": 1,
+        "error": "Traceback (most recent call last):\n  File \"/Users/uzair/Developer/code-fix-agent/tests/fixed/test3.py\", line 4, in <module>\n    assert reverse_string(\"hello\") == \"olleh\"\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n",
+        "proposed_fix": "def reverse_string(s):\n    return s[::-1]"
+      },
+      {
+        "attempt": 2,
+        "status": "success",
+        "output": ""
+      }
+    ],
+    "filename": "test3.py"
+  },
+  {
+    "status": "success",
+    "attempts": 2,
+    "final_code": "def factorial(n):\n    if n == 0:\n        return 1\n    return n * factorial(n - 1)\nassert factorial(5) == 120",
+    "log": [
+      {
+        "attempt": 1,
+        "error": "Traceback (most recent call last):\n  File \"/Users/uzair/Developer/code-fix-agent/tests/fixed/test4.py\", line 6, in <module>\n    assert factorial(5) == 120\n           ^^^^^^^^^^^^^^^^^^^\nAssertionError\n",
+        "proposed_fix": "def factorial(n):\n    if n == 0:\n        return 1\n    return n * factorial(n - 1)"
+      },
+      {
+        "attempt": 2,
+        "status": "success",
+        "output": ""
+      }
+    ],
+    "filename": "test4.py"
+  },
+  {
+    "status": "success",
+    "attempts": 2,
+    "final_code": "def add_item(item, my_list=None):\n    if my_list is None:\n        my_list = []\n    my_list.append(item)\n    return my_list\nassert add_item(\"a\") == [\"a\"]\nassert add_item(\"b\") == [\"b\"]",
+    "log": [
+      {
+        "attempt": 1,
+        "error": "Traceback (most recent call last):\n  File \"/Users/uzair/Developer/code-fix-agent/tests/fixed/test5.py\", line 6, in <module>\n    assert add_item(\"b\") == [\"b\"]\n           ^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n",
+        "proposed_fix": "def add_item(item, my_list=None):\n    if my_list is None:\n        my_list = []\n    my_list.append(item)\n    return my_list"
+      },
+      {
+        "attempt": 2,
+        "status": "success",
+        "output": ""
+      }
+    ],
+    "filename": "test5.py"
+  },
+  {
+    "status": "success",
+    "attempts": 2,
+    "final_code": "def find_max(numbers):\n    if not numbers:\n        raise ValueError(\"The list is empty.\")\n    max_num = numbers[0]\n    for n in numbers[1:]:\n        if n > max_num:\n            max_num = n\n    return max_num\nassert find_max([-5, -2, -10]) == -2",
+    "log": [
+      {
+        "attempt": 1,
+        "error": "Traceback (most recent call last):\n  File \"/Users/uzair/Developer/code-fix-agent/tests/fixed/test6.py\", line 8, in <module>\n    assert find_max([-5, -2, -10]) == -2\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n",
+        "proposed_fix": "def find_max(numbers):\n    if not numbers:\n        raise ValueError(\"The list is empty.\")\n    max_num = numbers[0]\n    for n in numbers[1:]:\n        if n > max_num:\n            max_num = n\n    return max_num"
+      },
+      {
+        "attempt": 2,
+        "status": "success",
+        "output": ""
+      }
+    ],
+    "filename": "test6.py"
+  },
+  {
+    "status": "success",
+    "attempts": 2,
+    "final_code": "def greet(name):\n    return f\"Hello, {name}!\"\nassert greet(\"Sam\") == \"Hello, Sam!\"",
+    "log": [
+      {
+        "attempt": 1,
+        "error": "Traceback (most recent call last):\n  File \"/Users/uzair/Developer/code-fix-agent/tests/fixed/test7.py\", line 4, in <module>\n    assert greet(\"Sam\") == \"Hello, Sam!\"\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n",
+        "proposed_fix": "def greet(name):\n    return f\"Hello, {name}!\""
+      },
+      {
+        "attempt": 2,
+        "status": "success",
+        "output": ""
+      }
+    ],
+    "filename": "test7.py"
+  },
+  {
+    "status": "success",
+    "attempts": 2,
+    "final_code": "def get_percentage(part, whole):\n    return (part / whole) * 100\nassert get_percentage(1, 4) == 25",
+    "log": [
+      {
+        "attempt": 1,
+        "error": "Traceback (most recent call last):\n  File \"/Users/uzair/Developer/code-fix-agent/tests/fixed/test8.py\", line 4, in <module>\n    assert get_percentage(1, 4) == 25\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n",
+        "proposed_fix": "def get_percentage(part, whole):\n    return (part / whole) * 100"
+      },
+      {
+        "attempt": 2,
+        "status": "success",
+        "output": ""
+      }
+    ],
+    "filename": "test8.py"
+  },
+  {
+    "status": "success",
+    "attempts": 2,
+    "final_code": "def get_last_element(lst):\n    return lst[-1]\nassert get_last_element([1, 2, 3]) == 3",
+    "log": [
+      {
+        "attempt": 1,
+        "error": "Traceback (most recent call last):\n  File \"/Users/uzair/Developer/code-fix-agent/tests/fixed/test9.py\", line 4, in <module>\n    assert get_last_element([1, 2, 3]) == 3\n           ~~~~~~~~~~~~~~~~^^^^^^^^^^^\n  File \"/Users/uzair/Developer/code-fix-agent/tests/fixed/test9.py\", line 2, in get_last_element\n    return lst[len(lst)]\n           ~~~^^^^^^^^^^\nIndexError: list index out of range\n",
+        "proposed_fix": "def get_last_element(lst):\n    return lst[-1]"
+      },
+      {
+        "attempt": 2,
+        "status": "success",
+        "output": ""
+      }
+    ],
+    "filename": "test9.py"
+  }
+]
