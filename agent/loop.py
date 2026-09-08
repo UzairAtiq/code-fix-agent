@@ -3,11 +3,13 @@ from sandbox.runner import runner
 from agent.stopping import stopper
 
 
-
 def fix_loop (test_file : str , fixed_file) :
 
   #count variable for counting how mant times the loop has run
   count = 0
+
+  #list of attempts history dictionary
+  attempts_log = []
 
   #copying the broken files code into a variable for the fixer
 
@@ -46,12 +48,20 @@ def fix_loop (test_file : str , fixed_file) :
 
       #Printing the output 
       print("File Output : ",result.stdout)
-      break
+
+      #Appending the attempt history to log list
+      attempts_log.append({"attempt": count, "status": "success", "output": result.stdout})
+      return {"status": "success", "attempts": count, "final_code": open(fixed_file).read(), "log": attempts_log}
 
     elif stopper(count) :
       print("FAILED TO FIX AFTER MAX ATTEMPTS")
+
+      #printing the last error
       print("Last Error:", result.stderr)
-      break   
+
+      #Appending the attempt history to log list
+      attempts_log.append({"attempt": count, "status": "failed", "error": result.stderr})
+      return {"status": "failed", "attempts": count, "final_code": open(fixed_file).read(), "log": attempts_log}
     
     else : 
 
@@ -63,6 +73,9 @@ def fix_loop (test_file : str , fixed_file) :
 
       #Printing llm proposed fix
       print("Proposed Fix : " , fix_llm)
+
+      #Appending proposed fix by LLM to log list
+      attempts_log.append({"attempt": count, "error": error, "proposed_fix": fix_llm})
 
        #Writing the fix to the file path
       with open(fixed_file, "w") as f:
